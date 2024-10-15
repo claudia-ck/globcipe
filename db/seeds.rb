@@ -16,6 +16,9 @@ Recipe.destroy_all
 
 User.destroy_all
 
+Ingredient.destroy_all
+
+
 puts "Creating users..."
 
 users = []
@@ -46,3 +49,15 @@ recipes << Recipe.create!(name: "Nimble", instruction: "A Recipe pushing a wheel
 recipes << Recipe.create!(name: "Ripplewink", instruction: "A Recipe holding a small shovel", category: "dessert", area: "Chinese")
 
 recipes << Recipe.create!(name: "Yarnyarn", instruction: "A Recipe holding a bouquet of flowers", category: "dessert", area: "Chinese")
+
+
+
+puts "Creating ingredients..."
+
+ingredients = []
+
+ingredients << Ingredient.create!(name: "InHoggle", description: "A Recipe holding a small shovel")
+
+ingredients << Ingredient.create!(name: "InZook", description: "A Recipe pushing a wheelbarrow")
+
+ingredients << Ingredient.create!(name: "InPerrin", description: "A Recipe holding a small lantern")
