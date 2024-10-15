@@ -1,0 +1,20 @@
+<h1>Recipes - show</h1>
+  id    <%= @recipe.id %>
+  name  <%= @recipe.name %>
+  instruction  <%= @recipe.instruction %>
+  category  <%= @recipe.category %>
+  area  <%= @recipe.area %>
+
+<%# Favourite section %>
+
+
+  <%# <% if recipe.favourite.exists?  %>
+    <%# <p>Favourited !</p> %>
+  <%# <%= @recipe.favourites[remarks:] %>
+  <%# <% else %>
+    <p>Favourite it!</p>
+    <%= simple_form_for [@recipe, @favourite], html: { class: "inline-form" } do |f| %>
+      <%= f.input :remarks, input_html: { class: "inline-input" }, label: "Add remarks" %>
+      <%= f.submit "Add favourite :D", class: "mb-3 btn-green inline-submit btn-green-recipe-card" %>
+    <% end %>
+  <%# <% end %>

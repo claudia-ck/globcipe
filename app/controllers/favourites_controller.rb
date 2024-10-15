@@ -6,10 +6,16 @@ class FavouritesController < ApplicationController
     @favourite.user = current_user
 
     if @favourite.save
-      redirect_to  recipe_path(recipe)
+      redirect_to recipe_path(@recipe), notice: 'Recipe was successfully favorited'
     else
-      render :new, status: :unprocessable_entity
+      redirect_to recipe_path(@recipe), alert: 'You can only favorite this recipe once.'
     end
+  end
+
+  def destroy
+    @favourite = Favourite.find(params[:id])
+    @favourite.destroy
+    redirect_to recipe_path(@recipe), status: :see_other, notice: 'Favorite was successfully removed.'
   end
 
   private
