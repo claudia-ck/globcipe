@@ -61,3 +61,7 @@ ingredients << Ingredient.create!(name: "InHoggle", description: "A Recipe holdi
 ingredients << Ingredient.create!(name: "InZook", description: "A Recipe pushing a wheelbarrow")
 
 ingredients << Ingredient.create!(name: "InPerrin", description: "A Recipe holding a small lantern")
+
+RecipeIngredient.create!(measure: "1 cup", recipe: recipes[0], ingredient: ingredients[0])
+RecipeIngredient.create!(measure: "1 cup", recipe: recipes[0], ingredient: ingredients[1])
+RecipeIngredient.create!(measure: "1 cup", recipe: recipes[0], ingredient: ingredients[2])
