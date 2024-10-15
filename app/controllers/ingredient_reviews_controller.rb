@@ -1,6 +1,6 @@
 class IngredientReviewsController < ApplicationController
   def create
-    @ingredient_review = Ingredient_review.new(ingredient_review_params)
+    @ingredient_review = IngredientReview.new(ingredient_review_params)
     @ingredient = Ingredient.find(params[:recipe_id])
     @ingredient_review.ingredient = @ingredient
     @ngredient_review.user = current_user
@@ -13,17 +13,17 @@ class IngredientReviewsController < ApplicationController
   end
 
   def destroy
-    @ingredient_review = Ingredient_review.find(params[:id])
+    @ingredient_review = IngredientReview.find(params[:id])
     @ingredient_review.destroy
     redirect_to ingredient_path(@ingredient), status: :see_other
   end
 
   def edit
-    @ingredient_review = Ingredient_review.find(params[:id])
+    @ingredient_review = IngredientReview.find(params[:id])
   end
 
   def update
-    @ingredient_review = Ingredient_review.find(params[:id])
+    @ingredient_review = IngredientReview.find(params[:id])
     @ingredient_review.update(ingredient_review_params)
     redirect_to ingredient_path(@ingredient)
   end
