@@ -7,3 +7,42 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+puts "Cleaning DB..."
+Favourite.destroy_all
+
+Recipe.destroy_all
+
+User.destroy_all
+
+puts "Creating users..."
+
+users = []
+
+users << User.create!(email: 'user1@example.com', password: 'password123')
+users << User.create!(email: 'user2@example.com', password: 'password123')
+users << User.create!(email: 'user3@example.com', password: 'password123')
+puts "Creating recipe..."
+
+recipes = []
+
+recipes << Recipe.create!(name: "Hoggle", instruction: "A Recipe with a spade", category: "dessert", area: "Chinese")
+
+recipes << Recipe.create!(name: "Quill", instruction: "A Recipe with a big red hat", category: "dessert", area: "Chinese")
+
+recipes << Recipe.create!(name: "Mirth", instruction: "A Recipe holding a fishing rod", category: "dessert", area: "Chinese")
+
+recipes << Recipe.create!(name: "Perrin", instruction: "A Recipe sitting and reading a book", category: "dessert", area: "Chinese")
+
+recipes << Recipe.create!(name: "Roscoe", instruction: "A Recipe holding a small lantern", category: "dessert", area: "Chinese")
+
+recipes << Recipe.create!(name: "Zook", instruction: "A Recipe with a watering can", category: "dessert", area: "Chinese")
+
+recipes << Recipe.create!(name: "Eldon", instruction: "A Recipe sitting on a big mushroom", category: "dessert", area: "Chinese")
+
+recipes << Recipe.create!(name: "Nimble", instruction: "A Recipe pushing a wheelbarrow", category: "dessert", area: "Chinese")
+
+recipes << Recipe.create!(name: "Ripplewink", instruction: "A Recipe holding a small shovel", category: "dessert", area: "Chinese")
+
+recipes << Recipe.create!(name: "Yarnyarn", instruction: "A Recipe holding a bouquet of flowers", category: "dessert", area: "Chinese")

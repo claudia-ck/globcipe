@@ -1,4 +1,20 @@
-<h1>hi recipes index</h1>
+<h1>Welcome to Globcipe</h1>
 
-test 1<%= @recipe.first  %>
-test 2<%= @recipe.last  %>
+  <div class="grid_container">
+    <% @recipe.each do |recipe| %>
+
+      <div class="card-img">
+
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          name  <%= recipe.name %>
+          instruction  <%= recipe.instruction %>
+          category  <%= recipe.category %>
+          area  <%= recipe.area %>
+        </div>
+        <%= link_to 'Details', recipe_path(recipe) %>
+      </div>
+    <% end %>
+  </div>
