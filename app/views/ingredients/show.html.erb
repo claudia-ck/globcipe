@@ -1,0 +1,15 @@
+<h1><%= @ingredient.name %><h1>
+
+------------Ingredient picture-----------
+
+Description????????
+
+<%= simple_form_for [@ingredient, @ingredient_review], html: { class: "inline-form" } do |f| %>
+  <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
+  <%= f.submit "Submit your comment" %>
+<% end %>
+
+
+
+<%= link_to 'Edit',  edit_ingredient_ingredient_review_path(@ingredient) %>
+<%= link_to 'Delete', ingredient_ingredient_review_path(@ingredient), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>

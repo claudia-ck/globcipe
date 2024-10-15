@@ -1,0 +1,19 @@
+<h1>Welcome to Globcipe</h1>
+
+  <div class="grid_container">
+    <% @recipe.each do |recipe| %>
+
+      <div class="card-img">
+
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          name  <%= recipe.name %>
+          category  <%= recipe.category %>
+          area  <%= recipe.area %>
+        </div>
+        <%= link_to 'Details', recipe_path(recipe) %>
+      </div>
+    <% end %>
+  </div>

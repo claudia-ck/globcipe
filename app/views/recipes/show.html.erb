@@ -1,0 +1,30 @@
+<h1>Recipes - show</h1>
+  <p>id    <%= @recipe.id %> </p>
+  <p>name  <%= @recipe.name %> </p>
+  <p>instruction  <%= @recipe.instruction %> </p>
+  <p>category  <%= @recipe.category %> </p>
+  <p>area  <%= @recipe.area %> </p>
+
+  <p> ingredients </p>
+  <ol>
+    <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+    <ul>
+      <%= link_to recipe_ingredient.ingredient.name, ingredient_path(recipe_ingredient.ingredient.id) %>
+      <%= recipe_ingredient.measure %>
+     </ul>
+    <% end %>
+  </ol>
+
+<%# Favourite section %>
+
+
+  <%# <% if recipe.favourite.exists?  %>
+    <%# <p>Favourited !</p> %>
+  <%# <%= @recipe.favourites[remarks:] %>
+  <%# <% else %>
+    <p>Favourite it!</p>
+    <%= simple_form_for [@recipe, @favourite], html: { class: "inline-form" } do |f| %>
+      <%= f.input :remarks, input_html: { class: "inline-input" }, label: "Add remarks" %>
+      <%= f.submit "Add favourite :D", class: "mb-3 btn-green inline-submit btn-green-recipe-card" %>
+    <% end %>
+  <%# <% end %>
