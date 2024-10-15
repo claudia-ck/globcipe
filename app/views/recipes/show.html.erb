@@ -1,10 +1,19 @@
 <h1>Recipes - show</h1>
-   <p>id    <%= @recipe.id %> </p>
-   <p>name  <%= @recipe.name %> </p>
-   <p>instruction  <%= @recipe.instruction %> </p>
-   <p>category  <%= @recipe.category %> </p>
-   <p>area  <%= @recipe.area %> </p>
+  <p>id    <%= @recipe.id %> </p>
+  <p>name  <%= @recipe.name %> </p>
+  <p>instruction  <%= @recipe.instruction %> </p>
+  <p>category  <%= @recipe.category %> </p>
+  <p>area  <%= @recipe.area %> </p>
 
+  <p> ingredients </p>
+  <ol>
+    <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+    <ul>
+      <%= link_to recipe_ingredient.ingredient.name, ingredient_path(recipe_ingredient.ingredient.id) %>
+      <%= recipe_ingredient.measure %>
+     </ul>
+    <% end %>
+  </ol>
 
 <%# Favourite section %>
 
