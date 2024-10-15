@@ -1,30 +1,48 @@
-<h1>Recipes - show</h1>
-  <p>id    <%= @recipe.id %> </p>
-  <p>name  <%= @recipe.name %> </p>
-  <p>instruction  <%= @recipe.instruction %> </p>
-  <p>category  <%= @recipe.category %> </p>
-  <p>area  <%= @recipe.area %> </p>
+<%= link_to "Back", recipes_path %>
 
-  <p> ingredients </p>
-  <ol>
-    <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-    <ul>
-      <%= link_to recipe_ingredient.ingredient.name, ingredient_path(recipe_ingredient.ingredient.id) %>
-      <%= recipe_ingredient.measure %>
-     </ul>
-    <% end %>
-  </ol>
+<h1>Recipes - show</h1>
+
+
+<%# Recipe Deatils section %>
+<div>
+  <div>
+    <%# to update image %>
+    <%= image_tag("https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg", width: 80, height: 80) %>
+  </div>
+
+  <div>
+    <p>ID    <%= @recipe.id %> </p>
+    <p>NAME  <%= @recipe.name %> </p>
+    <p>INSTRUCTION  <%= @recipe.instruction %> </p>
+    <p>CATEGORY  <%= @recipe.category %> </p>
+    <p>AREA  <%= @recipe.area %> </p>
+
+    <p> INGREDIENTS </p>
+    <ol>
+      <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+      <ul>
+        <%= link_to recipe_ingredient.ingredient.name, ingredient_path(recipe_ingredient.ingredient.id) %>
+        <%= recipe_ingredient.measure %>
+      </ul>
+      <% end %>
+    </ol>
+  </div>
+</div>
+
 
 <%# Favourite section %>
+<div>
+  <%# assign varibale 'favourited' %>
+  <% favourited = @recipe.favourites.find_by(user: current_user) %>
 
-
-  <%# <% if recipe.favourite.exists?  %>
-    <%# <p>Favourited !</p> %>
-  <%# <%= @recipe.favourites[remarks:] %>
-  <%# <% else %>
-    <p>Favourite it!</p>
+  <% if favourited.present?  %>
+      <p>Favourited !</p>
+      <p>REMARKS  <%= favourited.remarks%> </p>
+  <% else %>
+    <h1>Favourite it!</h1>
     <%= simple_form_for [@recipe, @favourite], html: { class: "inline-form" } do |f| %>
-      <%= f.input :remarks, input_html: { class: "inline-input" }, label: "Add remarks" %>
-      <%= f.submit "Add favourite :D", class: "mb-3 btn-green inline-submit btn-green-recipe-card" %>
+      <%= f.input :remarks, input_html: { class: "inline-input" }, label: "Input remarks" %>
+      <%= f.submit "Add favourite :D" %>
     <% end %>
-  <%# <% end %>
+  <% end %>
+</div>
