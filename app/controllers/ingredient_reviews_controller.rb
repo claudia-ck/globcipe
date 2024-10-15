@@ -6,7 +6,7 @@ class IngredientReviewsController < ApplicationController
     @ngredient_review.user = current_user
 
     if @ingredient_review.save
-      redirect_to ingredient_path(ingredient)
+      redirect_to ingredient_path(@ingredient)
     else
       render :new, status: :unprocessable_entity
     end
@@ -15,7 +15,7 @@ class IngredientReviewsController < ApplicationController
   def destroy
     @ingredient_review = Ingredient_review.find(params[:id])
     @ingredient_review.destroy
-    redirect_to ingredient_path(ingredient), status: :see_other
+    redirect_to ingredient_path(@ingredient), status: :see_other
   end
 
   def edit
@@ -25,7 +25,7 @@ class IngredientReviewsController < ApplicationController
   def update
     @ingredient_review = Ingredient_review.find(params[:id])
     @ingredient_review.update(ingredient_review_params)
-    redirect_to ingredient_path(ingredient)
+    redirect_to ingredient_path(@ingredient)
   end
 
   private
