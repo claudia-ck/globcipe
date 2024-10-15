@@ -1,9 +1,9 @@
 class IngredientReviewsController < ApplicationController
   def create
     @ingredient_review = IngredientReview.new(ingredient_review_params)
-    @ingredient = Ingredient.find(params[:recipe_id])
+    @ingredient = Ingredient.find(params[:ingredient_id])
     @ingredient_review.ingredient = @ingredient
-    @ngredient_review.user = current_user
+    @ingredient_review.user = current_user
 
     if @ingredient_review.save
       redirect_to ingredient_path(@ingredient)
