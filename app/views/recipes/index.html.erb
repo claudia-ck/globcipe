@@ -2,16 +2,18 @@
 
   <div class="grid_container">
     <% @recipe.each do |recipe| %>
-
-      <div class="card-img">
-
-      </div>
-
       <div class="card">
+        <div class="card-img">
+          <%# to update image %>
+          <%= link_to recipe_path(recipe) do %>
+            <%= image_tag("https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg", width: 80, height: 80) %>
+          <% end %>
+        </div>
+
         <div class="card-body">
-          name  <%= recipe.name %>
-          category  <%= recipe.category %>
-          area  <%= recipe.area %>
+          NAME  <%= recipe.name %>
+          CATEGORY  <%= recipe.category %>
+          AREA  <%= recipe.area %>
         </div>
         <%= link_to 'Details', recipe_path(recipe) %>
       </div>
