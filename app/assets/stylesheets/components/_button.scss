@@ -2,13 +2,30 @@
   display: inline-block;
   margin: 10px 0;
   padding: 8px 15px;
-  background-color: #333;
+  background-color: #313131;
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
+  font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
 .details-button:hover {
+  background-color: #555;
+}
+
+.general-button {
+  background-color: #313131;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.general-button:hover {
   background-color: #555;
 }
