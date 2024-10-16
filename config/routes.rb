@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :favourites, only: [:index, :create, :destroy, :edit, :update]
   end
   resources :ingredients, only: [:show] do
-    resources :ingredient_reviews, only: [:create, :update, :edit, :destroy]
+    resources :ingredient_reviews, only: [:create, :update, :edit, :destroy, :index]
   end
 
 
