@@ -1,20 +1,13 @@
 .footer {
   background-color: #F2C258; /* Yellow background */
   padding: 20px 0;
-  color: #333;
+  color: #313131;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-top: 2px solid #333; /* Dark border */
-}
-
-.container {
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  border-top: 2px solid #313131; /* Dark border */
+  margin-top: 20px;
 }
 
 .footer-title {
@@ -36,7 +29,7 @@
 }
 
 .social-icon {
-  color: #333;
+  color: #313131;
   margin: 0 10px;
   transition: color 0.3s ease;
 }
@@ -50,7 +43,7 @@
 }
 
 .footer-button {
-  background-color: #333;
+  background-color: #313131;
   color: #fff;
   padding: 8px 15px;
   border: none;
