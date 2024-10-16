@@ -1,19 +1,20 @@
 .footer {
-  background-color: #F2C258; /* Yellow background */
+  background-color: #F2C258;
   padding: 20px 0;
   color: #313131;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-top: 2px solid #313131; /* Dark border */
-  margin-top: 20px;
+  border-top: 2px solid #313131;
+  flex-shrink: 0;
+  height: 60px;
 }
 
 .footer-title {
   font-size: 24px;
   font-weight: bold;
-  font-family: 'Lora', serif; /* Custom font example */
+  font-family: 'Lora', serif;
   margin: 0;
 }
 
@@ -25,7 +26,7 @@
 .follow-us {
   font-size: 18px;
   margin-right: 10px;
-  font-family: 'Lora', serif; /* Custom font example */
+  font-family: 'Lora', serif;
 }
 
 .social-icon {
