@@ -1,8 +1,12 @@
 <h1><%= @ingredient.name %><h1>
 
+
 ------------Ingredient picture-----------
 
 Description????????
+
+ingredient subtitutions...............
+
 
 <%= simple_form_for [@ingredient, @ingredient_review], html: { class: "inline-form" } do |f| %>
   <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
@@ -10,6 +14,12 @@ Description????????
 <% end %>
 
 
-
-<%= link_to 'Edit',  edit_ingredient_ingredient_review_path(@ingredient) %>
-<%= link_to 'Delete', ingredient_ingredient_review_path(@ingredient), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<ul>
+  <% @ingredient.ingredient_reviews.each do |review| %>
+    <div>
+      <li><h4><strong>"</strong><%= review.comment %><strong>"</strong></h4>
+      <%= link_to 'Edit', edit_ingredient_ingredient_review_path(review) %>
+      <%= link_to 'Delete', ingredient_ingredient_review_path(review.comment, review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </div>
+  <% end %>
+</ul>

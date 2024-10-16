@@ -15,7 +15,7 @@ class IngredientReviewsController < ApplicationController
   def destroy
     @ingredient_review = IngredientReview.find(params[:id])
     @ingredient_review.destroy
-    redirect_to ingredient_path(@ingredient), status: :see_other
+    redirect_to ingredient_ingredient_review_path(@ingredient_review), status: :see_other
   end
 
   def edit
@@ -25,7 +25,7 @@ class IngredientReviewsController < ApplicationController
   def update
     @ingredient_review = IngredientReview.find(params[:id])
     @ingredient_review.update(ingredient_review_params)
-    redirect_to ingredient_path(@ingredient)
+    redirect_to ingredient_ingredient_review_path(@ingredient_review)
   end
 
   private
