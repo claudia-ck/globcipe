@@ -1,4 +1,10 @@
 class IngredientReviewsController < ApplicationController
+
+  def index
+    @ingredient_review = IngredientReview.all
+    @ingredient_review = IngredientReview.new
+  end
+
   def create
     @ingredient_review = IngredientReview.new(ingredient_review_params)
     @ingredient = Ingredient.find(params[:ingredient_id])

@@ -18,7 +18,15 @@ ingredient subtitutions...............
   <% @ingredient.ingredient_reviews.each do |review| %>
     <div>
       <li><h4><strong>"</strong><%= review.comment %><strong>"</strong></h4>
-      <%= link_to 'Edit', edit_ingredient_ingredient_review_path(review) %>
+      <div data-controller="toggle" class="mt-5">
+        <button data-action="click->toggle#fire" class="btn btn-outline-primary">Edit your comment</button>
+        <div data-toggle-target="togglableElement" class="d-none">
+          <%= simple_form_for [@ingredient, review], html: { class: "inline-form" } do |f| %>
+            <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
+            <%= f.submit "Submit Edit" %>
+          <% end %>
+        </div>
+      </div>
       <%= link_to 'Delete', ingredient_ingredient_review_path(review.comment, review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </div>
   <% end %>
