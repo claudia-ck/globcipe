@@ -13,7 +13,9 @@ require "rest-client"
 puts "Cleaning database..."
 RecipeIngredient.destroy_all
 Recipe.destroy_all
+IngredientReview.destroy_all
 Ingredient.destroy_all
+Substitute.destroy_all
 
 puts "Creating recipes..."
 
@@ -74,6 +76,13 @@ arr_meal_ids.each do |meal_id|
     counter += 1
   end
 end
+
+
+# substitues = []
+# substitues << Substitute.create!(name: "Black Pepper and Coriander Seeds", ingredient_id: 2353)
+# substitues << Substitute.create!(name: "Tasmanian Pepper", ingredient_id: 2353)
+# substitues << Substitute.create!(name: "Sansho Pepper", ingredient_id: 2353)
+
 puts "Finished!"
 
 # counter = 0
