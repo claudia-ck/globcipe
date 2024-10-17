@@ -13,4 +13,13 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #FDFFF6;
+}
+
+.wrapper {
+  min-height: calc(100vh - 133px);
+}
+
+.content {
+  flex: 1 0 auto;
 }
