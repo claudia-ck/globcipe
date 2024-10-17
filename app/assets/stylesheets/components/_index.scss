@@ -8,6 +8,8 @@
 @import "card";
 @import "button";
 @import "bodyContainer";
+@import "banner";
+
 
 html, body {
   height: 100%;
@@ -17,7 +19,7 @@ html, body {
 }
 
 .wrapper {
-  min-height: calc(100vh - 133px);
+  min-height: calc(100vh - 160px);
 }
 
 .content {
