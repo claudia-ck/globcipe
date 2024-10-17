@@ -14,8 +14,8 @@ puts "Cleaning database..."
 RecipeIngredient.destroy_all
 Recipe.destroy_all
 IngredientReview.destroy_all
-Ingredient.destroy_all
 Substitute.destroy_all
+Ingredient.destroy_all
 
 puts "Creating recipes..."
 
@@ -77,11 +77,47 @@ arr_meal_ids.each do |meal_id|
   end
 end
 
+puts "Creating substitutes..."
+substitues = []
+## recipe 1 Chinese mafo tofu
+#  Sichuan pepper - dependence on Ingredient table  ,
+ingredient = Ingredient.find_by(name: "Sichuan pepper") # Find the ingredient by name
+if ingredient
+  substitues << Substitute.create!(name: "Black Pepper and Coriander Seeds", ingredient_id: ingredient.id)
+  substitues << Substitute.create!(name: "Tasmanian Pepper", ingredient_id: ingredient.id)
+  substitues << Substitute.create!(name: "Sansho Pepper", ingredient_id: ingredient.id)
+else
+  puts "Ingredient not found 1"
+end
 
-# substitues = []
-# substitues << Substitute.create!(name: "Black Pepper and Coriander Seeds", ingredient_id: 2353)
-# substitues << Substitute.create!(name: "Tasmanian Pepper", ingredient_id: 2353)
-# substitues << Substitute.create!(name: "Sansho Pepper", ingredient_id: 2353)
+#  Fermented Black Beans - dependence on Ingredient table  ,
+ingredient = Ingredient.find_by(name: "Fermented Black Beans") # Find the ingredient by name
+if ingredient
+  substitues << Substitute.create!(name: "Miso Paste", ingredient_id: ingredient.id)
+  substitues << Substitute.create!(name: "Soy Sauce", ingredient_id: ingredient.id)
+else
+  puts "Ingredient not found 2"
+end
+
+#  Fermented Black Beans - dependence on Ingredient table  ,
+ingredient = Ingredient.find_by(name: "Doubanjiang") # Find the ingredient by name
+if ingredient
+  substitues << Substitute.create!(name: "Miso Paste mix Chili Flakes or Chili Oil", ingredient_id: ingredient.id)
+  substitues << Substitute.create!(name: "Korean Gochujang", ingredient_id: ingredient.id)
+  substitues << Substitute.create!(name: "Thai Chili Paste", ingredient_id: ingredient.id)
+else
+  puts "Ingredient not found 3"
+end
+
+## recipe 2 french Flamiche
+ingredient = Ingredient.find_by(name: "Creme Fraiche") # Find the ingredient by name
+if ingredient
+  substitues << Substitute.create!(name: "Sour Cream:", ingredient_id: ingredient.id)
+  substitues << Substitute.create!(name: "Greek Yogurt", ingredient_id: ingredient.id)
+  substitues << Substitute.create!(name: "Cream Cheese", ingredient_id: ingredient.id)
+else
+  puts "Ingredient not found 4"
+end
 
 puts "Finished!"
 
