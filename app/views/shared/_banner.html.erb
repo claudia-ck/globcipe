@@ -1,0 +1,19 @@
+<% if current_page?(root_path) or current_page?(recipes_path) %>
+  <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('bannerHome.jpg') %>')">
+    <h1>Welcome to <span class="website-name">Globcipe</span></h1>
+    <h2>Here to Bringing World Flavors to Your Kitchen!</h2>
+  </div>
+<% elsif current_page?(recipe_path) %>
+  <div class="banner-category banner-category-size" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('bannerRecipes.jpg') %>')">
+    <h1><%= @recipe.name %></h1>
+    <h2>Recipe</h2>
+  </div>
+<% elsif current_page?(ingredient_path) %>
+  <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('bannerIngredients.jpg') %>')">
+    <h1><%= @ingredient.name %></h1>
+    <h2>Ingredient</h2>
+  </div>
+<% else %>
+  <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('default-bannerHome.jpg') %>')">
+  </div>
+<% end %>
