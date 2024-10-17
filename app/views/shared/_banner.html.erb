@@ -1,19 +1,30 @@
 <% if current_page?(root_path) or current_page?(recipes_path) %>
-  <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('bannerHome.jpg') %>')">
+  <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerHome.jpg') %>)">
     <h1>Welcome to <span class="website-name">Globcipe</span></h1>
     <h2>Here to Bringing World Flavors to Your Kitchen!</h2>
   </div>
+<% elsif current_page?(aboutglobcipe_path) or current_page?(meetteam_path) %>
+  <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('bannerHome.jpg') %>')">
+    <% if current_page?(aboutglobcipe_path) %>
+      <h1>About</h1>
+    <% else %>
+      <h1>The Team</h1>
+    <% end %>
+  </div>
 <% elsif current_page?(recipe_path) %>
-  <div class="banner-category banner-category-size" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('bannerRecipes.jpg') %>')">
+  <div class="banner-category banner-category-size" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerRecipes.jpg') %>)">
     <h1><%= @recipe.name %></h1>
     <h2>Recipe</h2>
   </div>
 <% elsif current_page?(ingredient_path) %>
-  <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('bannerIngredients.jpg') %>')">
-    <h1><%= @ingredient.name %></h1>
-    <h2>Ingredient</h2>
+<div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerIngredients.jpg') %>)">
+  <h1><%= @ingredient.name %></h1>
+  <h2>Ingredient</h2>
+</div>
+<% elsif current_page?(aboutglobcipe_path) or current_page?(meetteam_path) %>
+  <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('bannerHome.jpg') %>')">
   </div>
 <% else %>
-  <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('default-bannerHome.jpg') %>')">
+  <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('bannerHome.jpg') %>')">
   </div>
 <% end %>
