@@ -1,8 +1,28 @@
 <%= link_to "Back", recipes_path %>
 
-<h1>Recipes - show</h1>
+<div class="recipe-card">
+  <div class="recipe-header">
+    <h1><%= @recipe.name%></h1>
+    <div class="recipe-image">
+      <%= image_tag @recipe.image_url, alt: @recipe.name %>
+    </div>
+  </div>
 
+  <div class="ingredients-section">
+    <h2>Ingredients</h2>
+    <ul class="ingredients-list">
+      <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+      <li><%= link_to recipe_ingredient.ingredient.name, ingredient_path(recipe_ingredient.ingredient.id) %>
+      <%= recipe_ingredient.measure %></li>
+    <% end %>
+    </ul>
+  </div>
 
+  <div class="instructions-section">
+    <h2>Instructions</h2>
+      <p><%= @recipe.instruction %> </p>
+  </div>
+</div>
 <%# Recipe Deatils section %>
 <div>
   <div>
