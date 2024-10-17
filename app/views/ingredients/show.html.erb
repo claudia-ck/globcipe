@@ -1,11 +1,9 @@
 <h1><%= @ingredient.name %><h1>
 
 
-------------Ingredient picture-----------
 
-Description????????
 <%= image_tag("https://www.themealdb.com/images/ingredients/#{@ingredient.name}.png", width: 80, height: 80) %>
-ingredient subtitutions...............
+
 
 <%# claudia testing - can be removed%>
 <% @ingredient.substitutes.each do |substitute|%>

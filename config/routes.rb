@@ -20,7 +20,8 @@ Rails.application.routes.draw do
     resources :ingredient_reviews, only: [:create, :update, :edit, :destroy, :index]
   end
 
-
+  get "aboutglobcipe", to: "pages#aboutglobcipe"
+  get "meetteam", to: "pages#meetteam"
 
 
 end
