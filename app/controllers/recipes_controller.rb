@@ -1,6 +1,12 @@
 class RecipesController < ApplicationController
   def index
-    @recipe = Recipe.all
+    search = params[:search]
+    if search.present?
+      area = search[:area]
+      @recipes = Recipe.where(area: area)
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
