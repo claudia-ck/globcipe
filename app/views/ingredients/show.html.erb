@@ -7,6 +7,12 @@ Description????????
 <%= image_tag("https://www.themealdb.com/images/ingredients/#{@ingredient.name}.png", width: 80, height: 80) %>
 ingredient subtitutions...............
 
+<%# claudia testing - can be removed%>
+<% @ingredient.substitutes.each do |substitute|%>
+<li><%= substitute.name%> </li>
+<%end%>
+<%# claudia testing - can be removed%>
+
 
 <%= simple_form_for [@ingredient, @ingredient_review], html: { class: "inline-form" } do |f| %>
   <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
