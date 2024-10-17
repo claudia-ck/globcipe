@@ -26,3 +26,86 @@
 .card-body p {
   margin: 5px 0;
 }
+
+/* General styling */
+body {
+  background-color: #FFFFF2; /* Matches light background */
+  font-family: Arial, sans-serif;
+}
+
+/* Recipe card container */
+.recipe-card {
+  background-color: white;
+  border: 1px solid #E6B563;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+/* Recipe header - Title and Image */
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-header h1 {
+  background-color: #E6B563;
+  padding: 10px 20px;
+  margin: 0;
+  border-radius: 5px;
+  font-size: 24px;
+}
+
+/* Recipe Image */
+.recipe-image {
+  border: 2px solid #313131;
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 100px;
+}
+
+.recipe-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ingredients Section */
+.ingredients-section {
+  margin-top: 20px;
+}
+
+.ingredients-section h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredients-list li {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Instructions Section */
+.instructions-section {
+  margin-top: 20px;
+}
+
+.instructions-section h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.instruction-text {
+  border: 2px dashed #000;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+}
