@@ -1,5 +1,5 @@
 <div class="recipe-card">
-  <div class="recipe-header">
+  <div class="recipe-header pb-3">
     <h1><%= @ingredient.name %></h1>
     <div class="ingredients-image">
       <%= image_tag("https://www.themealdb.com/images/ingredients/#{@ingredient.name}.png", alt: @ingredient.name) %>
@@ -34,7 +34,7 @@
         <button class="icon-button" data-action="click->toggle#fire">
           <i class="fa-solid fa-pen-to-square edit-btn"></i>
         </button>
-        <div data-toggle-target="togglableElement" class="d-non">
+        <div data-toggle-target="togglableElement" class="d-none">
           <%= simple_form_for [@ingredient, review], html: { class: "inline-form" } do |f| %>
             <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
             <%= f.submit "Submit Edit", class: "general-button" %>
