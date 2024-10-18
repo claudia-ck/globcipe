@@ -3,6 +3,7 @@
 <div class="recipe-card">
   <div class="recipe-header">
     <h1><%= @recipe.name%></h1>
+    <p><%= @recipe.area%> <%= @recipe.category%></p>
     <div class="recipe-image">
       <%= image_tag @recipe.image_url, alt: @recipe.name %>
     </div>
@@ -24,45 +25,22 @@
   </div>
 </div>
 <%# Recipe Deatils section %>
-<div>
-  <div>
-    <%# to update image %>
-    <%= image_tag @recipe.image_url , width: 80, height: 80 %>
+
+<div class="recipe-card">
+  <div class="recipe-header padding-bottom-card">
+    <h1>Favourite it!</h1>
   </div>
-
-  <div>
-    <p>ID    <%= @recipe.id %> </p>
-    <p>NAME  <%= @recipe.name %> </p>
-    <p>INSTRUCTION  <%= @recipe.instruction %> </p>
-    <p>CATEGORY  <%= @recipe.category %> </p>
-    <p>AREA  <%= @recipe.area %> </p>
-
-    <p> INGREDIENTS </p>
-    <ol>
-      <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-      <ul>
-        <%= link_to recipe_ingredient.ingredient.name, ingredient_path(recipe_ingredient.ingredient.id) %>
-        <%= recipe_ingredient.measure %>
-      </ul>
-      <% end %>
-    </ol>
-  </div>
-</div>
-
-
-<%# Favourite section %>
-<div>
-  <%# assign varibale 'favourited' %>
-  <% favourited = @recipe.favourites.find_by(user: current_user) %>
+  <div class="instructions-section padding-bottom-card">
+    <% favourited = @recipe.favourites.find_by(user: current_user) %>
 
   <% if favourited.present?  %>
-      <p>Favourited !</p>
-      <p>REMARKS  <%= favourited.remarks%> </p>
+      <p>Favourited!</p>
+      <p><%= favourited.remarks%> </p>
   <% else %>
-    <h1>Favourite it!</h1>
     <%= simple_form_for [@recipe, @favourite], html: { class: "inline-form" } do |f| %>
-      <%= f.input :remarks, input_html: { class: "inline-input" }, label: "Input remarks" %>
-      <%= f.submit "Add favourite :D" %>
+      <%= f.input :remarks, input_html: { class: "inline-input" }, label: "Input a remark" %>
+      <%= f.submit "Add me to Favourite", class: "general-button" %>
     <% end %>
   <% end %>
+  </div>
 </div>
