@@ -3,7 +3,12 @@ class RecipesController < ApplicationController
     search = params[:search]
     if search.present?
       area = search[:area]
-      @recipes = Recipe.where(area: area)
+      category = search[:category]
+      if area.present?
+        @recipes = Recipe.where(area: area)
+      elsif category.present?
+        @recipes = Recipe.where(category: category)
+      end
     else
       @recipes = Recipe.all
     end
