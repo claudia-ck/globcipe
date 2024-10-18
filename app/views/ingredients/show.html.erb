@@ -1,37 +1,48 @@
-<h1><%= @ingredient.name %><h1>
+<div class="recipe-card">
+  <div class="recipe-header">
+    <h1><%= @ingredient.name %></h1>
+    <div class="ingredients-image">
+      <%= image_tag("https://www.themealdb.com/images/ingredients/#{@ingredient.name}.png", alt: @ingredient.name) %>
+    </div>
+  </div>
 
+  <div class="ingredients-section padding-ingredients">
+    <h2>Possible substitutions</h2>
+    <ul class="ingredients-list">
+    <% @ingredient.substitutes.each do |substitute|%>
+      <li><%= substitute.name%> </li>
+    <%end%>
+    </ul>
+  </div>
 
-
-<%= image_tag("https://www.themealdb.com/images/ingredients/#{@ingredient.name}.png", width: 80, height: 80) %>
-
-
-<%# claudia testing - can be removed%>
-<% @ingredient.substitutes.each do |substitute|%>
-<li><%= substitute.name%> </li>
-<%end%>
-<%# claudia testing - can be removed%>
-
-
-<%= simple_form_for [@ingredient, @ingredient_review], html: { class: "inline-form" } do |f| %>
-  <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
-  <%= f.submit "Submit your comment" %>
-<% end %>
-
+  <div class="instructions-section">
+    <h2>Add a comment</h2>
+    <%= simple_form_for [@ingredient, @ingredient_review], html: { class: "inline-form" } do |f| %>
+      <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
+      <%= f.submit "Submit your comment", class: "general-button mb-3" %>
+    <% end %>
+  </div>
 
 <ul>
   <% @ingredient.ingredient_reviews.each do |review| %>
     <div>
-      <li><h4><%= review.user.username %> commented: <strong>"</strong><%= review.comment %><strong>"</strong></h4>
-      <div data-controller="toggle" class="mt-5">
-        <button data-action="click->toggle#fire" class="btn btn-outline-primary">Edit your comment</button>
-        <div data-toggle-target="togglableElement" class="d-none">
+      <div data-controller="toggle" class="padding-right-card">
+        <i class="fa-solid fa-comment mt-2"></i> <%= review.user.username %>: "<%= review.comment %>"
+        <%= link_to ingredient_ingredient_review_path(review.comment, review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+        <button class="icon-button" data-action="click->toggle#fire">
+          <i class="fa-solid fa-pen-to-square edit-btn"></i>
+        </button>
+        <div data-toggle-target="togglableElement" class="d-non">
           <%= simple_form_for [@ingredient, review], html: { class: "inline-form" } do |f| %>
             <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
-            <%= f.submit "Submit Edit" %>
+            <%= f.submit "Submit Edit", class: "general-button" %>
           <% end %>
         </div>
       </div>
-      <%= link_to 'Delete', ingredient_ingredient_review_path(review.comment, review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </div>
   <% end %>
 </ul>
+
+</div>
