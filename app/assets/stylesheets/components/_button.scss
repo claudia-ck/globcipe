@@ -29,3 +29,19 @@
 .general-button:hover {
   background-color: #555;
 }
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.icon-button .edit-btn {
+  color: #007bff;
+}
+
+.icon-button .edit-btn:hover {
+  color: #0056b3;
+}
