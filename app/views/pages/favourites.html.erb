@@ -1,0 +1,19 @@
+
+<div class="grid-container">
+  <% @favourites.each do |favourite| %>
+    <div class="card">
+      <div class="card-img">
+        <%= link_to recipe_path(favourite.recipe) do %>
+          <%= image_tag(favourite.recipe.image_url, width: 80, height: 80, alt: favourite.recipe.name) %>
+        <% end %>
+      </div>
+
+      <div class="card-body">
+        <p><strong>Name:</strong> <%= favourite.recipe.name %></p>
+        <p><strong>Category:</strong> <%= favourite.recipe.category %></p>
+        <p><strong>Area:</strong> <%= favourite.recipe.area %></p>
+      </div>
+      <%= link_to 'Details', recipe_path(favourite.recipe), class: "details-button" %>
+    </div>
+  <% end %>
+</div>

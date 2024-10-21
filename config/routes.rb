@@ -13,8 +13,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  get "favourites", to: "pages#favourites"
+
   resources :recipes, only: [:index, :show] do
-    resources :favourites, only: [:index, :create, :destroy, :edit, :update]
+    resources :favourites, only: [:create, :destroy, :edit, :update]
   end
   resources :ingredients, only: [:show] do
     resources :ingredient_reviews, only: [:create, :update, :edit, :destroy, :index]
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
 
   get "aboutglobcipe", to: "pages#aboutglobcipe"
   get "meetteam", to: "pages#meetteam"
+
 
 
 end
