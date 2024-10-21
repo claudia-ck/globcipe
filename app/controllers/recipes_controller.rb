@@ -4,7 +4,9 @@ class RecipesController < ApplicationController
     if search.present?
       area = search[:area]
       category = search[:category]
-      if area.present?
+      if area.present? && category.present?
+        @recipes = Recipe.where(area: area, category: category)
+      elsif area.present?
         @recipes = Recipe.where(area: area)
       elsif category.present?
         @recipes = Recipe.where(category: category)

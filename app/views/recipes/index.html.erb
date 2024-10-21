@@ -1,9 +1,5 @@
 <%= simple_form_for :search, url: recipes_path, method: "GET", html: { class: 'form-inline' } do |f| %>
   <%= f.input :area, label: "Country", input_html: {value: ""} %>
-  <%= f.submit "Completed", class: "general-button mb-2" %>
-<% end %>
-
-<%= simple_form_for :search, url: recipes_path, method: "GET", html: { class: 'form-inline' } do |f| %>
   <%= f.input :category, label: "Category", input_html: {value: ""} %>
   <%= f.submit "Completed", class: "general-button mb-2" %>
 <% end %>
