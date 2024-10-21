@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_21_100510) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_21_110258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_21_100510) do
     t.datetime "updated_at", null: false
     t.string "image_url"
     t.string "youtube_url"
+    t.string "embedded_youtube_url"
   end
 
   create_table "substitutes", force: :cascade do |t|
