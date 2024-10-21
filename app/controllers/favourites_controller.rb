@@ -18,6 +18,7 @@ class FavouritesController < ApplicationController
     redirect_to recipe_path(@recipe), status: :see_other, notice: 'Favorite was successfully removed.'
   end
 
+
   private
   def favourite_params
     params.require(:favourite).permit(:remarks)
