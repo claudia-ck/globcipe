@@ -11,7 +11,7 @@
       <h1>The Team</h1>
     <% end %>
   </div>
-<% elsif current_page?(recipe_path) %>
+<% elsif current_page?(recipe_path(params[:id])) %>
   <div class="banner-category banner-category-size" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerRecipes.jpg') %>)">
     <h1><%= @recipe.name %></h1>
     <h2>Recipe</h2>
