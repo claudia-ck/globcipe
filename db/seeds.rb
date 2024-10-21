@@ -54,6 +54,10 @@ arr_meal_ids.each do |meal_id|
   recipe.area = response_parsed["meals"][0]["strArea"]
   recipe.instruction = response_parsed["meals"][0]["strInstructions"]
   recipe.image_url = response_parsed["meals"][0]["strMealThumb"]
+  recipe.youtube_url = response_parsed["meals"][0]["strYoutube"]
+
+  youtube_url_id = response_parsed["meals"][0]["strYoutube"].partition('=').last
+  recipe.embedded_youtube_url = "https://www.youtube.com/embed/#{youtube_url_id}"
   recipe.save
 
   counter = 1
