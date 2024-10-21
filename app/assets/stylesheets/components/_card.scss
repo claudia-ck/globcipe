@@ -55,7 +55,7 @@
 }
 
 .recipe-image img {
-  width: 250px;
+  width: 350px;
   height: auto;
   position: absolute;
   top: 20px;
@@ -78,6 +78,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  height: auto;
+  min-height: 200px;
 }
 
 .ingredients-list li {
@@ -95,6 +97,20 @@
   margin-bottom: 10px;
 }
 
+.video-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.video-section h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
 .padding-bottom-card {
   padding-bottom: 20px;
 }
@@ -108,7 +124,7 @@
 }
 
 .ingredients-image img {
-  width: 250px;
+  width: 350px;
   height: auto;
   position: absolute;
   top: 20px;
