@@ -4,6 +4,7 @@
     <p><%= @recipe.area%> <%= @recipe.category%></p>
     <div class="recipe-image">
       <%= image_tag @recipe.image_url, alt: @recipe.name %>
+      <%= link_to @recipe.youtube_url, @recipe.youtube_url, target: '_blank' %>
     </div>
   </div>
 

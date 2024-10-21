@@ -54,6 +54,7 @@ arr_meal_ids.each do |meal_id|
   recipe.area = response_parsed["meals"][0]["strArea"]
   recipe.instruction = response_parsed["meals"][0]["strInstructions"]
   recipe.image_url = response_parsed["meals"][0]["strMealThumb"]
+  recipe.youtube_url = response_parsed["meals"][0]["strYoutube"]
   recipe.save
 
   counter = 1
