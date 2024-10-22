@@ -45,6 +45,8 @@
     <div>
       <div data-controller="toggle" class="padding-right-card">
         <i class="fa-solid fa-comment mt-2"></i> <%= review.user.username %>: "<%= review.comment %>"
+        <% authenticated = @ingredient.ingredient_reviews.find_by(user: current_user) %>
+          <% if review == authenticated %>
         <%= link_to ingredient_ingredient_review_path(review.comment, review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
           <i class="fa-solid fa-trash"></i>
         <% end %>
@@ -58,6 +60,9 @@
           <% end %>
         </div>
       </div>
+      <% else %>
+        <%= " " %>
+      <% end %>
     </div>
   <% end %>
 </ul>
