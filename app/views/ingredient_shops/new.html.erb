@@ -1,0 +1,19 @@
+<h1>I found <%=@ingredient.name%> here: </h1>
+
+<h2>elect a Shop from Glocipe community</h2>
+<%= simple_form_for [@ingredient, @ingredient_shop] do |f| %>
+  <div>
+    <%= f.input :shop_id, collection: @shops %>
+  </div>
+
+  <div class="instructions-section">
+    <h2>Can't find the shop? </h2>
+    <%= link_to 'Add a new Shop', new_ingredient_shop_path %>
+  </div>
+
+
+
+  <div>
+    <%= f.button :submit, "TEST Add Ingredient to Shop " , class: "general-button mb-3"  %>
+  </div>
+<% end %>

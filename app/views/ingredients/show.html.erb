@@ -22,13 +22,8 @@
 </div>
 
 <div class="instructions-section">
-<h2>Add a Shop for <%= @ingredient.name %></h2>
-<%= link_to 'Add Shop', new_ingredient_shop_path(@ingredient) %>
-
-  <%# <%= simple_form_for IngredientShop.new, url: ingredient_ingredient_shops_path(@ingredient), method: :post do |f| %>
-    <%# <%= f.association :shop, collection: Shop.all, label: 'Select a Shop' %> %>
-    <%# <%= f.submit 'Add Shop' , class: "general-button mb-3" %> %>
-  <%# <% end %> %> %>
+  <h2>Add a Shop for <%= @ingredient.name %></h2>
+  <%= link_to 'Add locator',   new_ingredient_ingredient_shop_path(@ingredient) %>
 </div>
 
 
