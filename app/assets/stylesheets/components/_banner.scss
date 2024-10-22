@@ -1,20 +1,20 @@
 .banner-category {
-  background-size: cover;
+  position: relative; /* You can use absolute if needed */
+  left: 50%; /* Move the banner to the center */
+  transform: translateX(-50%); /* Shift back by half its width */
+  width: 100vw; /* Full viewport width */
+  height: 200px; /* Adjust height as necessary */
+  background-size: cover; /* Ensure the background image covers the entire banner */
   background-position: center;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #FDFFF6;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  flex-direction: column;
-  margin-bottom: 10px;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path("bannerHome.jpg") %>');
+  color: white;
+  text-align: center;
+  padding: 50px 0; /* Adjust padding to give it height */
+  margin-bottom: 20px;
 }
 
-.website-name {
-  font-family: 'Lora', serif;
-  font-weight: 600;
+/* Optional - additional styling for the text inside the banner */
+.banner-category h1, .banner-category h2 {
+  margin: 0;
+  padding: 10px 0;
 }

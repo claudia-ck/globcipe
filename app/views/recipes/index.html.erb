@@ -1,3 +1,7 @@
+<div class="banner-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerHome.jpg') %>)">
+  <h1>Welcome to <span class="website-name">Globcipe</span></h1>
+  <h2>Here to Bringing World Flavors to Your Kitchen!</h2>
+</div>
 <%= simple_form_for :search, url: recipes_path, method: "GET", html: { class: 'row g-3 align-items-center' } do |f| %>
   <div class="col-md-5">
     <%= f.input :area, label: "Country", input_html: {class: "form-control", value: ""} %>

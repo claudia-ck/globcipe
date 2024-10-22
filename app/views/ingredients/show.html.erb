@@ -1,4 +1,9 @@
-<div class="recipe-card">
+<div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerIngredients.jpg') %>)">
+  <h1><%= @ingredient.name %></h1>
+  <h2>Ingredient</h2>
+</div>
+
+<div class="recipe-card pb-4">
   <div class="recipe-header pb-3">
     <h1><%= @ingredient.name %></h1>
     <div class="ingredients-image">
@@ -12,23 +17,35 @@
     <% @ingredient.substitutes.each do |substitute|%>
       <li><%= substitute.name%> </li>
     <%end%>
+      <li class="li-amazon"> You can order <%=@ingredient.name%> on:
+      <div class="amazon-button">
+        <%= link_to "Amazon", "https://www.amazon.com/s?k=#{@ingredient.name}&crid=33F8WONUCWOEO&sprefix=%2Caps%2C188&ref=nb_sb_noss", class: "btn btn-primary", target: "_blank", rel: "noopener noreferrer" %>
+      </div>
+      </li>
     </ul>
   </div>
 
-<div style="width: 50%; height: 300px;"
-  data-controller="map"
-  data-map-markers-value="<%= @shopmarkers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<div class="instructions-section">
-  <h2>Add a Shop for <%= @ingredient.name %></h2>
-  <%= link_to 'Add locator',   new_ingredient_ingredient_shop_path(@ingredient) %>
+<div class="recipe-card pb-4">
+  <div class="recipe-header padding-bottom-card ">
+    <h1>Find shops available nearby</h1>
+  </div>
+  <div class="video-section m-4" style="width: 980; height: 616px;"
+    data-controller="map"
+    data-map-markers-value="<%= @shopmarkers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div class="instructions-section">
+    <p>You can also add your shop manualy <%= @ingredient.name %><%= link_to 'Add Shop', new_ingredient_shop_path(@ingredient), class:"general-button" %></p>
+  </div>
 </div>
 
-
+<div class="recipe-card pb-4">
+  <div class="recipe-header padding-bottom-card ">
+    <h1>Add a comment</h1>
+  </div>
 <div class="instructions-section">
-  <h2>Add a comment</h2>
   <%= simple_form_for [@ingredient, @ingredient_review], html: { class: "inline-form" } do |f| %>
     <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
     <%= f.submit "Submit your comment", class: "general-button mb-3" %>
@@ -40,6 +57,8 @@
     <div>
       <div data-controller="toggle" class="padding-right-card">
         <i class="fa-solid fa-comment mt-2"></i> <%= review.user.username %>: "<%= review.comment %>"
+        <% authenticated = @ingredient.ingredient_reviews.find_by(user: current_user) %>
+          <% if review == authenticated %>
         <%= link_to ingredient_ingredient_review_path(review.comment, review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
           <i class="fa-solid fa-trash"></i>
         <% end %>
@@ -53,8 +72,10 @@
           <% end %>
         </div>
       </div>
+      <% else %>
+        <%= " " %>
+      <% end %>
     </div>
   <% end %>
 </ul>
-
 </div>
