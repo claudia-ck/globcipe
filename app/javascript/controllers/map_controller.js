@@ -11,15 +11,17 @@ export default class extends Controller {
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
-    this.map = new mapboxgl.Map({
-      container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
-    })
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    const map = new mapboxgl.Map({
+      container: this.element,  // The container is still dynamically the current element
+      style: "mapbox://styles/mapbox/streets-v12"
+    });
+
+    // Add markers to the map and fit to bounds
+    this.#addMarkersToMap(map);  // Pass the map instance as an argument
+    this.#fitMapToMarkers(map);  // Pass the map instance as an argument
   }
 
-  #addMarkersToMap() {
+  #addMarkersToMap(map) {
     this.markersValue.forEach((marker) => {
       const customMarker = document.createElement('div')
       customMarker.style.height = "30px"
@@ -30,11 +32,12 @@ export default class extends Controller {
       new mapboxgl.Marker({element: customMarker})
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
-        .addTo(this.map)
+        // .addTo(this.map)
+        .addTo(map)
     })
   }
 
-  #fitMapToMarkers() {
+  #fitMapToMarkers(map) {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 10 })

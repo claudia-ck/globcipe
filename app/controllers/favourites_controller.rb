@@ -15,7 +15,7 @@ class FavouritesController < ApplicationController
   def destroy
     @favourite = Favourite.find(params[:id])
     @favourite.destroy
-    redirect_to recipe_path(@recipe), status: :see_other, notice: 'Favorite was successfully removed.'
+    redirect_to favourites_path, status: :see_other, notice: 'Favorite was successfully removed.'
   end
 
 
