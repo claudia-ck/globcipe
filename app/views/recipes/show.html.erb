@@ -1,3 +1,7 @@
+<div class="banner-category banner-category-size" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerRecipes.jpg') %>)">
+  <h1><%= @recipe.name %></h1>
+  <h2>Recipe</h2>
+</div>
 <div class="recipe-card">
   <div class="recipe-header">
     <h1><%= @recipe.name%></h1>
@@ -11,7 +15,7 @@
     <h2>Ingredients</h2>
     <ul class="ingredients-list">
       <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-      <li><%= link_to recipe_ingredient.ingredient.name, ingredient_path(recipe_ingredient.ingredient.id) %>
+      <li><%= link_to recipe_ingredient.ingredient.name, ingredient_path(recipe_ingredient.ingredient.id), class: "links" %>
       <%= recipe_ingredient.measure %></li>
     <% end %>
     </ul>
