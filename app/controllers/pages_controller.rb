@@ -16,9 +16,12 @@ class PagesController < ApplicationController
     @markers = @recipes.map do |recipe|
       {
         lat: recipe.latitude,
-        lng: recipe.longitude
+        lng: recipe.longitude,
+        info_window: render_to_string(partial: "popup", locals: {recipe: recipe}),
+        image_url: helpers.asset_url("glocipe-logo.png")
       }
     end
   end
+
 
 end

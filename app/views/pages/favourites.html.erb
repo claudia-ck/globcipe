@@ -1,25 +1,29 @@
 
-<div class="grid-container">
-  <% @favourites.each do |favourite| %>
-    <div class="card">
-      <div class="card-img">
-        <%= link_to recipe_path(favourite.recipe) do %>
-          <%= image_tag(favourite.recipe.image_url, width: 80, height: 80, alt: favourite.recipe.name) %>
-        <% end %>
-      </div>
+<div class="d-flex">
+  <div class="grid-container-favourite">
+    <% @favourites.each do |favourite| %>
+      <div class="card" id="favourite_card">
+        <div class="card-img">
+          <%= link_to recipe_path(favourite.recipe) do %>
+            <%= image_tag(favourite.recipe.image_url, width: 80, height: 80, alt: favourite.recipe.name) %>
+          <% end %>
+        </div>
 
-      <div class="card-body">
-        <p><strong>Name:</strong> <%= favourite.recipe.name %></p>
-        <p><strong>Category:</strong> <%= favourite.recipe.category %></p>
-        <p><strong>Area:</strong> <%= favourite.recipe.area %></p>
+        <div class="card-body position-relative">
+          <p><strong>Name:</strong> <%= favourite.recipe.name %></p>
+          <p><strong>Category:</strong> <%= favourite.recipe.category %></p>
+          <p><strong>Area:</strong> <%= favourite.recipe.area %></p>
+          <%= link_to favourite_path(favourite), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <i class="fa-solid fa-trash text-dark position-absolute bottom-0 end-6"></i>
+          <% end %>
+        </div>
+        <%= link_to 'Details', recipe_path(favourite.recipe), class: "details-button" %>
       </div>
-      <%= link_to 'Details', recipe_path(favourite.recipe), class: "details-button" %>
-    </div>
-  <% end %>
-</div>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <% end %>
+  </div>
+  <div id="map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
