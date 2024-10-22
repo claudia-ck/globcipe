@@ -15,13 +15,30 @@
     </ul>
   </div>
 
-  <div class="instructions-section">
-    <h2>Add a comment</h2>
-    <%= simple_form_for [@ingredient, @ingredient_review], html: { class: "inline-form" } do |f| %>
-      <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
-      <%= f.submit "Submit your comment", class: "general-button mb-3" %>
-    <% end %>
-  </div>
+<div style="width: 50%; height: 300px;"
+  data-controller="map"
+  data-map-markers-value="<%= @shopmarkers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
+<div class="instructions-section">
+<h2>Add a Shop for <%= @ingredient.name %></h2>
+<%= link_to 'Add Shop', new_ingredient_shop_path(@ingredient) %>
+
+  <%# <%= simple_form_for IngredientShop.new, url: ingredient_ingredient_shops_path(@ingredient), method: :post do |f| %>
+    <%# <%= f.association :shop, collection: Shop.all, label: 'Select a Shop' %> %>
+    <%# <%= f.submit 'Add Shop' , class: "general-button mb-3" %> %>
+  <%# <% end %> %> %>
+</div>
+
+
+<div class="instructions-section">
+  <h2>Add a comment</h2>
+  <%= simple_form_for [@ingredient, @ingredient_review], html: { class: "inline-form" } do |f| %>
+    <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
+    <%= f.submit "Submit your comment", class: "general-button mb-3" %>
+  <% end %>
+</div>
 
 <ul>
   <% @ingredient.ingredient_reviews.each do |review| %>
