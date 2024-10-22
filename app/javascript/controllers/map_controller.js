@@ -13,7 +13,10 @@ export default class extends Controller {
 
     const map = new mapboxgl.Map({
       container: this.element,  // The container is still dynamically the current element
-      style: "mapbox://styles/mapbox/streets-v12"
+      style: "mapbox://styles/mapbox/streets-v12",
+      center: [-0.12,51.51], // starting position
+      zoom: 2 // starting zoom
+
     });
 
     // Add markers to the map and fit to bounds

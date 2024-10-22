@@ -1,0 +1,24 @@
+<div class="banner-category banner-category-size" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerRecipes.jpg') %>)">
+    <h1>Pin a shop</h1>
+</div>
+
+<div class="recipe-card pb-4">
+  <div class="recipe-header padding-bottom-card ">
+    <h1>I found <%=@ingredient.name%> here: </h1>
+  </div>
+<div class="instructions-section">
+<h2>Select a Shop from Glocipe community</h2>
+  <%= simple_form_for [@ingredient, @ingredient_shop] do |f| %>
+    <div>
+      <%= f.input :shop_id, collection: @shops, label: false  %>
+    </div>
+
+    <div class="instructions-section">
+      <h2>Can't find the shop? <%= link_to 'Add a new Shop', new_ingredient_shop_path %> </h2>
+    </div>
+
+    <div>
+      <%= f.button :submit, "Add a pin! " , class: "general-button mb-3"  %>
+    </div>
+  <% end %>
+</div>

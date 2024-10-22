@@ -20,10 +20,11 @@ Rails.application.routes.draw do
   end
   resources :ingredients, only: [:show] do
     resources :ingredient_reviews, only: [:create, :update, :edit, :destroy, :index]
+    resources :ingredient_shops, only: [:new, :create]
     resources :shops, only: [:new, :create]
-    resources :ingredient_shops, only: [:create]
-
   end
+
+
 
   get "aboutglobcipe", to: "pages#aboutglobcipe"
   get "meetteam", to: "pages#meetteam"

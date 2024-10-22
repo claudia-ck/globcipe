@@ -1,33 +1,27 @@
 class ShopsController < ApplicationController
   def new
-    @ingredient = Ingredient.find(params[:ingredient_id]) # Get the ingredient context
+    @ingredient = Ingredient.find(params[:ingredient_id])
+    # @ingredient_shop = IngredientShop.new
+
     @shop = Shop.new
     @shops = Shop.all # Fetch all shops for the dropdown list
-    @ingredient_shop = IngredientShop.new
-
   end
 
   def create
+    @shop = Shop.new(shop_params)
     @ingredient = Ingredient.find(params[:ingredient_id])
+    if @shop.save
 
-    # Check if shop_id is present
-    if params[:ingredient_shop][:shop_id].present?
-      # Create the association between the ingredient and the existing shop
-      @ingredient_shop = IngredientShop.new(ingredient_id: @ingredient.id, shop_id: params[:ingredient_shop][:shop_id], user_id: current_user.id)
-    else
-      # If shop_id is not present, create a new shop
-      @shop = Shop.new(shop_params)
-      if @shop.save
-        # Create the association for the new shop
-        @ingredient_shop = IngredientShop.new(ingredient_id: @ingredient.id, shop_id: @shop.id, user_id: current_user.id)
-      end
-    end
+      # Assuming you have a join model IngredientShop
+      # IngredientShop.create(ingredient_id: params[:ingredient_id], shop_id: @shop.id)
 
-    if @ingredient_shop && @ingredient_shop.save
-      redirect_to ingredient_path(@ingredient), notice: 'Shop was successfully added.'
+      # Redirect back to the ingredient show page with a success message
+
+      # redirect_to recipes_path, notice: 'Shop was successfully added.'
+      redirect_to new_ingredient_ingredient_shop_path(@ingredient), notice: 'Shop was successfully added.'
     else
-      # Handle errors
-      flash.now[:alert] = @ingredient_shop.errors.full_messages.to_sentence
+      # If save fails, render the new shop form again
+      # @shops = Shop.all
       render :new
     end
   end
@@ -36,9 +30,5 @@ class ShopsController < ApplicationController
 
   def shop_params
     params.require(:shop).permit(:name, :address)
-  end
-
-  def ingredient_params
-    params.require(:ingredient).permit(:shop_id, :user_id)
   end
 end
