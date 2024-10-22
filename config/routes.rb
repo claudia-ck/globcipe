@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "favourites", to: "pages#favourites"
 
   resources :recipes, only: [:index, :show] do
-    resources :favourites, only: [:create, :destroy, :edit, :update]
+    resources :favourites, only: [:create, :edit, :update]
   end
   resources :ingredients, only: [:show] do
     resources :ingredient_reviews, only: [:create, :update, :edit, :destroy, :index]
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get "aboutglobcipe", to: "pages#aboutglobcipe"
   get "meetteam", to: "pages#meetteam"
 
+  resources :favourites, only: [:destroy]
 
 
 end
