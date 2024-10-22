@@ -11,6 +11,7 @@
 @import "founders_card";
 @import "banner";
 @import "map";
+@import "links";
 
 html, body {
   height: 100%;
@@ -20,9 +21,10 @@ html, body {
 }
 
 .wrapper {
-  min-height: calc(100vh - 360px);
+  min-height: calc(100vh - 160px);
 }
 
 .content {
   flex: 1 0 auto;
+  position: relative; /* Ensures contained elements can be positioned relative to this */
 }
