@@ -1,0 +1,35 @@
+<%# <h1>I found <%=@ingredient.name here: </h1> %>
+
+<h2>Select a Shop from Glocipe community</h2>
+# <%# <%= simple_form_for @ingredient do |f| %> %>
+  <%# <%= f.select :shop_id, @shops.map { |shop| [shop.name, shop.id] }, { include_blank: true } %> %>
+  <%# <%= f.submit "Find #{@ingredient.name} here" , class: "general-button mb-3" %> %>
+<%# <% end %> %>
+
+<h2>Add a Shop to the Globcipe community</h2>
+<%# <%= simple_form_for [@ingredient, @shop]  do |f| %> %>
+  <%# <div> %>
+    <%# <%= f.input :name, placeholder: "Shop Name" %> %>
+    <%# <%= f.input :address, placeholder: "Shop Address" %> %>
+  <%# </div> %>
+
+  <%# <div> %>
+    <%# <%= f.button :submit, "Add this shop and find #{@ingredient.name} here" , class: "general-button mb-3"  %> %>
+  <%# </div> %>
+<%# <% end %> %> %>
+
+
+<%= simple_form_for [@ingredient, @ingredient_shop] do |f| %>
+
+<%# <%= simple_form_for [@ingredient, @ingredient_shop], url: ingredient_shops_path(@ingredient), local: true do |f| %> %>
+  <h2>Select a Shop from Glocipe community</h2>
+  <%= f.input :shop_id, collection: @shops.map { |shop| [shop.name, shop.id] }, include_blank: true, label: "Choose a shop" %>
+
+  <h2>Add a New Shop</h2>
+  <%# <%= f.input :shop_attributes do |shop_fields| %> %>
+    <%# <%= shop_fields.input :name, placeholder: "Shop Name" %> %>
+    <%# <%= shop_fields.input :address, placeholder: "Shop Address" %> %>
+  <%# <% end %> %>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
