@@ -15,6 +15,8 @@ RecipeIngredient.destroy_all
 Recipe.destroy_all
 IngredientReview.destroy_all
 Substitute.destroy_all
+IngredientShop.destroy_all
+Shop.destroy_all
 Ingredient.destroy_all
 
 puts "Creating recipes..."
