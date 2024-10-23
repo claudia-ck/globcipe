@@ -1,20 +1,18 @@
 <div class="banner-category banner-category-size" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerRecipes.jpg') %>)">
-    <h1>Add shop</h1>
+  <h1>Add shop</h1>
 </div>
 
 <div class="recipe-card pb-4">
   <div class="recipe-header padding-bottom-card ">
     <h1>Add shop to the Globcipe community</h1>
   </div>
-<div class="instructions-section">
-  <%= simple_form_for [@ingredient, @shop] do |f| %>
-    <div>
-      <%= f.input :name, placeholder: "Shop Name" %>
-      <%= f.input :address, placeholder: "Shop Address" %>
-    </div>
-
-    <div>
-      <%= f.button :submit, "Add a new shop to the community" , class: "general-button mb-3"  %>
-    </div>
-  <% end %>
+  <div class="ingredient-section">
+    <%= simple_form_for [@ingredient, @shop] do |f| %>
+      <div class="p-3">
+        <%= f.input :name, placeholder: "Shop Name" %>
+        <%= f.input :address, placeholder: "Shop Address" %>
+        <%= f.button :submit, "Add a new shop to the community" , class: "general-button mb-3"  %>
+      </div>
+    <% end %>
+  </div>
 </div>
