@@ -1,19 +1,18 @@
 .banner-category {
-  position: relative; /* You can use absolute if needed */
-  left: 50%; /* Move the banner to the center */
-  transform: translateX(-50%); /* Shift back by half its width */
-  width: 100vw; /* Full viewport width */
-  height: 200px; /* Adjust height as necessary */
-  background-size: cover; /* Ensure the background image covers the entire banner */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 200px;
+  background-size: cover;
   background-position: center;
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path("bannerHome.jpg") %>');
   color: white;
   text-align: center;
-  padding: 50px 0; /* Adjust padding to give it height */
+  padding: 50px 0;
   margin-bottom: 20px;
 }
 
-/* Optional - additional styling for the text inside the banner */
 .banner-category h1, .banner-category h2 {
   margin: 0;
   padding: 10px 0;
@@ -21,4 +20,8 @@
 
 .banner-category h2 {
   font-size: 25px;
+}
+
+.website-name {
+
 }
