@@ -11,15 +11,45 @@
     </div>
   </div>
 
-  <div class="ingredients-section">
-    <h2>Ingredients</h2>
-    <ul class="ingredients-list">
-      <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-      <li><%= link_to recipe_ingredient.ingredient.name, ingredient_path(recipe_ingredient.ingredient.id), class: "links" %>
-      <%= recipe_ingredient.measure %></li>
+<div class="ingredients-section">
+  <h2>Ingredients</h2>
+  <table>
+    <tr>
+      <th></th>
+      <th style="width: 80px;"></th> <!-- Gap Column -->
+      <th></th>
+    </tr>
+
+    <% # Get the ingredients and split them into two groups %>
+    <% column1 = @recipe.recipe_ingredients.first(10) %>
+    <% column2 = @recipe.recipe_ingredients.drop(10) %>
+
+    <% # Determine the maximum number of rows %>
+    <% max_rows = [column1.size, column2.size].max %>
+
+    <% # Loop through the maximum number of rows and render ingredients in each column %>
+    <% max_rows.times do |i| %>
+      <tr>
+        <td>
+          <% if column1[i] %>
+            <%= link_to column1[i].ingredient.name, ingredient_path(column1[i].ingredient.id), class: "links" %>
+            <%= column1[i].measure %>
+          <% end %>
+        </td>
+
+        <!-- Empty middle column to create a gap -->
+        <td style="width: 50px;"></td>
+
+        <td>
+          <% if column2[i] %>
+            <%= link_to column2[i].ingredient.name, ingredient_path(column2[i].ingredient.id), class: "links" %>
+            <%= column2[i].measure %>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
-    </ul>
-  </div>
+  </table>
+</div>
 
   <div class="instructions-section">
     <h2>Instructions</h2>
@@ -44,7 +74,7 @@
       <p><%= favourited.remarks%> </p>
   <% else %>
     <%= simple_form_for [@recipe, @favourite], html: { class: "inline-form" } do |f| %>
-      <%= f.input :remarks, input_html: { class: "inline-input" }, placeholder: "Add a comment", label: false %>
+      <%= f.input :remarks, input_html: { class: "inline-input" }, placeholder: "Add a comment" %>
       <%= f.submit "Add me to Favourite", class: "general-button" %>
     <% end %>
   <% end %>
