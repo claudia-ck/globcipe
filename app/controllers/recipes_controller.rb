@@ -1,16 +1,16 @@
 class RecipesController < ApplicationController
   def index
-    search = search_params
-    if search
-      area = search[:area] if search[:area] != ""
-      category = search[:category] if search[:category] != ""
-      if area.present? && category.present?
-        @recipes = Recipe.where(area: area, category: category)
-      elsif area.present?
-        @recipes = Recipe.where(area: area)
-      elsif category.present?
-        @recipes = Recipe.where(category: category)
-      end
+    area = params[:search].nil? ? nil : params[:search][:area]
+    category = params[:search].nil? ? nil : params[:search][:category]
+
+    if area.nil? && category.nil?
+      @recipes = category_driven_recipes
+    elsif area.present? && category.present?
+      @recipes = Recipe.where(area: area, category: category)
+    elsif area.present?
+      @recipes = Recipe.where(area: area)
+    elsif category.present?
+      @recipes = Recipe.where(category: category)
     else
       @recipes = category_driven_recipes
     end
