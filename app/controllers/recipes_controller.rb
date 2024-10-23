@@ -2,8 +2,8 @@ class RecipesController < ApplicationController
   def index
     search = search_params
     if search
-      area = search[:area] if search[:area] != ""
-      category = search[:category] if search[:category] != ""
+      area = search[:area].capitalize if search[:area] != ""
+      category = search[:category].capitalize if search[:category] != ""
       if area.present? && category.present?
         @recipes = Recipe.where(area: area, category: category)
       elsif area.present?

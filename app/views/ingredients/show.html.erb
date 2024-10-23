@@ -47,7 +47,7 @@
   </div>
 <div class="instructions-section">
   <%= simple_form_for [@ingredient, @ingredient_review], html: { class: "inline-form" } do |f| %>
-    <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
+    <%= f.input :comment, input_html: { class: "inline-input" }, placeholder: "Add a comment", label: false %>
     <%= f.submit "Submit your comment", class: "general-button mb-3" %>
   <% end %>
 </div>
