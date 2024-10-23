@@ -29,7 +29,7 @@
 
 <div class="recipe-card pb-4">
   <div class="recipe-header padding-bottom-card ">
-    <h1>Find shops available nearby</h1>
+    <h1>Find shops available in the UK</h1>
   </div>
   <div class="video-section m-4" style="width: 980; height: 616px;"
     data-controller="map"
@@ -37,7 +37,7 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="instructions-section">
-    <p>You can also add your shop manualy <%= @ingredient.name %><%= link_to 'Add Shop', new_ingredient_ingredient_shop_path(@ingredient), class:"general-button" %></p>
+    <p>You can also add your shop manually <%= link_to 'Add Shop', new_ingredient_ingredient_shop_path(@ingredient), class:"general-button" %></p>
   </div>
 </div>
 
@@ -47,7 +47,7 @@
   </div>
 <div class="instructions-section">
   <%= simple_form_for [@ingredient, @ingredient_review], html: { class: "inline-form" } do |f| %>
-    <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
+    <%= f.input :comment, input_html: { class: "inline-input" }, placeholder: "Add a comment", label: false %>
     <%= f.submit "Submit your comment", class: "general-button mb-3" %>
   <% end %>
 </div>
@@ -57,24 +57,23 @@
     <div>
       <div data-controller="toggle" class="padding-right-card">
         <i class="fa-solid fa-comment mt-2"></i> <%= review.user.username %>: "<%= review.comment %>"
-        <% authenticated = @ingredient.ingredient_reviews.find_by(user: current_user) %>
-          <% if review == authenticated %>
-        <%= link_to ingredient_ingredient_review_path(review.comment, review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-          <i class="fa-solid fa-trash"></i>
-        <% end %>
-        <button class="icon-button" data-action="click->toggle#fire">
-          <i class="fa-solid fa-pen-to-square edit-btn"></i>
-        </button>
-        <div data-toggle-target="togglableElement" class="d-none">
-          <%= simple_form_for [@ingredient, review], html: { class: "inline-form" } do |f| %>
-            <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
-            <%= f.submit "Submit Edit", class: "general-button" %>
+        <% if review.user == current_user %>
+          <%= link_to ingredient_ingredient_review_path(review.comment, review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+            <i class="fa-solid fa-trash"></i>
           <% end %>
-        </div>
+          <button class="icon-button" data-action="click->toggle#fire">
+            <i class="fa-solid fa-pen-to-square edit-btn"></i>
+          </button>
+          <div data-toggle-target="togglableElement" class="d-none">
+            <%= simple_form_for [@ingredient, review], html: { class: "inline-form" } do |f| %>
+              <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
+              <%= f.submit "Submit Edit", class: "general-button" %>
+            <% end %>
+          </div>
+        <% else %>
+          <%= " " %>
+        <% end %>
       </div>
-      <% else %>
-        <%= " " %>
-      <% end %>
     </div>
   <% end %>
 </ul>

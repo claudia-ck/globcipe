@@ -14,7 +14,7 @@
         <div class="card-body position-relative">
           <p><strong>Name:</strong> <%= favourite.recipe.name %></p>
           <p><strong>Category:</strong> <%= favourite.recipe.category %></p>
-          <p><strong>Area:</strong> <%= favourite.recipe.area %></p>
+          <p><strong>Country:</strong> <%= favourite.recipe.area %></p>
           <%= link_to favourite_path(favourite), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
             <i class="fa-solid fa-trash text-dark position-absolute bottom-0 end-6"></i>
           <% end %>
@@ -23,7 +23,7 @@
       </div>
     <% end %>
   </div>
-  <div id="map"
+  <div class="mt-4 mb-5" id="map"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

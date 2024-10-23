@@ -44,7 +44,7 @@
       <p><%= favourited.remarks%> </p>
   <% else %>
     <%= simple_form_for [@recipe, @favourite], html: { class: "inline-form" } do |f| %>
-      <%= f.input :remarks, input_html: { class: "inline-input" }, label: "Input a remark" %>
+      <%= f.input :remarks, input_html: { class: "inline-input" }, placeholder: "Add a comment", label: false %>
       <%= f.submit "Add me to Favourite", class: "general-button" %>
     <% end %>
   <% end %>

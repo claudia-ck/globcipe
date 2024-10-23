@@ -4,21 +4,22 @@
 
 <div class="recipe-card pb-4">
   <div class="recipe-header padding-bottom-card ">
-    <h1>I found <%=@ingredient.name%> here: </h1>
+    <h1>I found <%=@ingredient.name%> here </h1>
   </div>
-<div class="instructions-section">
-<h2>Select a Shop from Glocipe community</h2>
-  <%= simple_form_for [@ingredient, @ingredient_shop] do |f| %>
+  <div class="instructions-section">
+    <h2>Select a Shop from Glocipe community</h2>
+    <%= simple_form_for [@ingredient, @ingredient_shop] do |f| %>
     <div>
-      <%= f.input :shop_id, collection: @shops, label: false  %>
+      <%= f.input :shop_id, collection: @shops, label: false %>
     </div>
 
     <div class="instructions-section">
-      <h2>Can't find the shop? <%= link_to 'Add a new Shop', new_ingredient_shop_path %> </h2>
+      <p>Can't find the shop? <%= link_to 'Add a new Shop', new_ingredient_shop_path, class: "links" %> <p>
     </div>
 
     <div>
       <%= f.button :submit, "Add a pin! " , class: "general-button mb-3"  %>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
