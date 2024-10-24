@@ -1,5 +1,5 @@
 <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('bannerHome.jpg') %>')">
-  <h1>Your Favourites</h1>
+  <h1 class="fw-bold">Your Favourites</h1>
 </div>
 <div class="d-flex">
   <div class="grid-container-favourite">
@@ -12,9 +12,9 @@
         </div>
 
         <div class="card-body position-relative">
-          <p><strong>Name:</strong> <%= favourite.recipe.name %></p>
-          <p><strong>Category:</strong> <%= favourite.recipe.category %></p>
-          <p><strong>Country:</strong> <%= favourite.recipe.area %></p>
+          <p class="fs-5 fw-bold"><%= favourite.recipe.name %></p>
+          <p><%= favourite.recipe.category %></p>
+          <p><%= favourite.recipe.area %></p>
           <%= link_to favourite_path(favourite), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
             <i class="fa-solid fa-trash text-dark position-absolute bottom-0 end-6"></i>
           <% end %>

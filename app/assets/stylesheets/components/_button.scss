@@ -72,3 +72,20 @@
   display: inline-block;
   margin-left: 10px; /* Space between the text and the button */
 }
+
+.general-button-show {
+  background-color: #313131;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.general-button-show:hover {
+  background-color: #555;
+  color: #fff;
+}

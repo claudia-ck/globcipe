@@ -1,6 +1,6 @@
 <div class="banner-category banner-category-size" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerRecipes.jpg') %>)">
-  <h1><%= @recipe.name %></h1>
-  <h2>Recipe</h2>
+  <h1 class="fw-bold"><%= @recipe.name %></h1>
+  <h2 class="fw-bold">Recipe</h2>
 </div>
 <div class="recipe-card">
   <div class="recipe-header">
@@ -74,7 +74,7 @@
       <p><%= favourited.remarks%> </p>
   <% else %>
     <%= simple_form_for [@recipe, @favourite], html: { class: "inline-form" } do |f| %>
-      <%= f.input :remarks, input_html: { class: "inline-input" }, placeholder: "Add a comment" %>
+      <%= f.input :remarks, input_html: { class: "inline-input form-control" }, placeholder: "Add a comment" %>
       <%= f.submit "Add me to Favourite", class: "general-button" %>
     <% end %>
   <% end %>
