@@ -59,10 +59,10 @@
         <i class="fa-solid fa-comment mt-2"></i> <%= review.user.username %>: "<%= review.comment %>"
         <% if review.user == current_user %>
           <%= link_to ingredient_ingredient_review_path(review.comment, review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-            <i class="fa-solid fa-trash"></i>
+            <i class="fa-solid fa-trash text-dark"></i>
           <% end %>
           <button class="icon-button" data-action="click->toggle#fire">
-            <i class="fa-solid fa-pen-to-square edit-btn"></i>
+            <i class="fa-solid fa-pen-to-square edit-btn text-dark"></i>
           </button>
           <div data-toggle-target="togglableElement" class="d-none">
             <%= simple_form_for [@ingredient, review], html: { class: "inline-form" } do |f| %>
