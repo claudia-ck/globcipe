@@ -23,6 +23,7 @@ export default class extends Controller {
     // Add markers to the map and fit to bounds
     this.#addMarkersToMap();  // Pass the map instance as an argument
     this.#fitMapToMarkers();
+    this.map.addControl(new mapboxgl.NavigationControl(), 'top-right');
     // this.#addMarkersToMap(map);  // Pass the map instance as an argument
     // this.#fitMapToMarkers(map); // Pass the map instance as an argument
   }
