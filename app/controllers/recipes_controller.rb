@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   def index
-    area = params[:search].nil? ? nil : params[:search][:area]
-    category = params[:search].nil? ? nil : params[:search][:category]
+    area = params[:search].nil? ? nil : params[:search][:area].capitalize
+    category = params[:search].nil? ? nil : params[:search][:category].capitalize
 
     if area.nil? && category.nil?
       @recipes = category_driven_recipes
