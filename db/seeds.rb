@@ -83,6 +83,42 @@ arr_meal_ids.each do |meal_id|
   end
 end
 
+Recipe.where(area: 'Japanese').update_all(area: 'Japan')
+Recipe.where(area: 'American').update_all(area: 'America')
+Recipe.where(area: 'British').update_all(area: 'England')
+Recipe.where(area: 'Canadian').update_all(area: 'Canada')
+Recipe.where(area: 'Chinese').update_all(area: 'China')
+
+Recipe.where(area: 'Croatian').update_all(area: 'Croatia')
+Recipe.where(area: 'Dutch').update_all(area: 'Holland')
+Recipe.where(area: 'Egyptian').update_all(area: 'Egypt')
+Recipe.where(area: 'Filipino').update_all(area: 'Philippines')
+Recipe.where(area: 'French').update_all(area: 'France')
+
+Recipe.where(area: 'Greek').update_all(area: 'Greece')
+Recipe.where(area: 'Indian').update_all(area: 'India')
+Recipe.where(area: 'Irish').update_all(area: 'Ireland')
+Recipe.where(area: 'Italian').update_all(area: 'Italy')
+Recipe.where(area: 'Jamaican').update_all(area: 'Jamaica')
+
+Recipe.where(area: 'Kenyan').update_all(area: 'Kenya')
+Recipe.where(area: 'Malaysian').update_all(area: 'Malaysia')
+Recipe.where(area: 'Mexican').update_all(area: 'Mexico')
+Recipe.where(area: 'Moroccan').update_all(area: 'Morocco')
+Recipe.where(area: 'Polish').update_all(area: 'Poland')
+
+Recipe.where(area: 'Russian').update_all(area: 'Russia')
+Recipe.where(area: 'Spanish').update_all(area: 'Spain')
+Recipe.where(area: 'Thai').update_all(area: 'Thailand')
+Recipe.where(area: 'Tunisian').update_all(area: 'Tunisia')
+Recipe.where(area: 'Turkish').update_all(area: 'Turkey')
+
+Recipe.where(area: 'Vietnamese').update_all(area: 'Vietnam')
+Recipe.where(area: 'Ukrainian').update_all(area: 'Ukraine')
+Recipe.where(area: 'Portuguese').update_all(area: 'Portugal')
+
+
+
 puts "Creating substitutes..."
 substitues = []
 ## recipe 1 Chinese mafo tofu
