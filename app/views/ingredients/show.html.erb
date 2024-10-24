@@ -1,6 +1,6 @@
 <div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerIngredients.jpg') %>)">
-  <h1><%= @ingredient.name %></h1>
-  <h2>Ingredient</h2>
+  <h1 class="fw-bold"><%= @ingredient.name %></h1>
+  <h2 class="fw-bold">Ingredient</h2>
 </div>
 
 <div class="recipe-card pb-4">
@@ -66,7 +66,7 @@
           </button>
           <div data-toggle-target="togglableElement" class="d-none">
             <%= simple_form_for [@ingredient, review], html: { class: "inline-form" } do |f| %>
-              <%= f.input :comment, input_html: { class: "inline-input" }, label: false %>
+              <%= f.input :comment, input_html: { class: "inline-input form-control" }, label: false %>
               <%= f.submit "Submit Edit", class: "general-button" %>
             <% end %>
           </div>

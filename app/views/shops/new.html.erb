@@ -1,5 +1,5 @@
 <div class="banner-category banner-category-size" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerRecipes.jpg') %>)">
-  <h1>Add shop</h1>
+  <h1 class="fw-bold">Add shop</h1>
 </div>
 
 <div class="recipe-card pb-4">
@@ -9,9 +9,9 @@
   <div class="ingredient-section">
     <%= simple_form_for [@ingredient, @shop] do |f| %>
       <div class="p-3">
-        <%= f.input :name, placeholder: "Shop Name" %>
-        <%= f.input :address, placeholder: "Shop Address" %>
-        <%= f.button :submit, "Add a new shop to the community" , class: "general-button mb-3"  %>
+        <%= f.input :name, placeholder: "Shop Name", class: "form-control" %>
+        <%= f.input :address, placeholder: "Shop Address", class: "form-control" %>
+        <%= f.button :submit, "Add a new shop to the community" , class: "general-button-show mb-3"  %>
       </div>
     <% end %>
   </div>

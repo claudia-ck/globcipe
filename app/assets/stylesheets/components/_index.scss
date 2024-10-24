@@ -12,6 +12,7 @@
 @import "banner";
 @import "map";
 @import "links";
+@import "form";
 
 html, body {
   height: 100%;
@@ -27,4 +28,13 @@ html, body {
 .content {
   flex: 1 0 auto;
   position: relative; /* Ensures contained elements can be positioned relative to this */
+}
+
+.body-headline {
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.website-name {
+  font-family: 'Lora', serif;
 }

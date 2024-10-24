@@ -1,20 +1,20 @@
 <div class="banner-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('bannerHome.jpg') %>)">
-  <h1>Welcome to <span class="website-name">Globcipe</span></h1>
-  <h2>Here to Bringing World Flavors to Your Kitchen!</h2>
+  <h1 class="fw-bold fs-2">Welcome to <span class="website-name fs-1">Globcipe</span></h1>
+  <h2 class="fw-bold fs-2">Bringing the Flavours of Home to Your Kitchen No Matter Where You Are</h2>
 </div>
 <%= simple_form_for :search, url: recipes_path, method: "GET", html: { class: 'row g-3 align-items-center' } do |f| %>
   <div class="col-md-5">
-    <%= f.input :area, label: false, input_html: {class: "form-control", value: ""}, placeholder: "Country: French, British, Japanese, Dutch, Indian etc." %>
+    <%= f.input :area, label: false, input_html: {class: "form-control", value: ""}, placeholder: "Countries: France, China, etc." %>
   </div>
   <div class="col-md-5">
-    <%= f.input :category, label: false, input_html: {class: "form-control", value: ""}, placeholder: "Category: Beef, Vegetarian, Dessert, Chicken, Lamb etc." %>
+    <%= f.input :category, label: false, input_html: {class: "form-control", value: ""}, placeholder: "Category: Beef, Vegetarian, etc." %>
   </div>
   <div class="col-md-2">
     <%= f.submit "Explore", class: "general-button mb-5 mt-4 w-100" %>
   </div>
 <% end %>
 
-
+<h2 class="body-headline">Globcipes of the day</h2>
 <div class="grid-container">
   <% @recipes.each do |recipe| %>
     <div class="card">
@@ -25,9 +25,9 @@
       </div>
 
       <div class="card-body">
-        <p><strong>Name:</strong> <%= recipe.name %></p>
-        <p><strong>Category:</strong> <%= recipe.category %></p>
-        <p><strong>Country:</strong> <%= recipe.area %></p>
+        <p class="fs-5 fw-bold"><%= recipe.name %></p>
+        <p><%= recipe.category %></p>
+        <p><%= recipe.area %></p>
       </div>
       <%= link_to 'Details', recipe_path(recipe), class: "details-button" %>
     </div>
